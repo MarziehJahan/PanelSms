@@ -20,22 +20,22 @@ namespace PanelSms.Models
         [DataType(DataType.EmailAddress,ErrorMessage ="آدرس ایمیل نامعتبر است")]
         public string Email { get; set; }
         [Required(ErrorMessage = "شماره همراه الزامیست")]
-        [RegularExpression(@"09 [1 2 0 3]\d{8}",ErrorMessage ="شماره همراه نامعتبر است")]
-        public int PhoneNumber { get; set; }
+        //[RegularExpression(@"09 [1 2 0 3]+[0-9]{8}", ErrorMessage ="شماره همراه نامعتبر است")]
+        public int? PhoneNumber { get; set; }
         [Required(ErrorMessage = "شماره تلفن الزامیست")]
-        [RegularExpression(@"0 \d{10}", ErrorMessage = "شماره تلفن نامعتبر است")]
-        public int PhoneCall { get; set; }
+        //[RegularExpression(@"^ 021+ [0-9]{8}", ErrorMessage = "شماره تلفن نامعتبر است")]
+        public int? PhoneCall { get; set; }
         [Required(ErrorMessage = "کد ملی الزامیست")]
-        public int NationalCode { get; set; }
+        public int? NationalCode { get; set; }
         [Required(ErrorMessage = "شماره شناسنامه الزامیست")]
-        public int BirthNo { get; set; }
+        public int? BirthNo { get; set; }
         [Required(ErrorMessage = "کد پستی الزامیست")]
-        public int PostalCode { get; set; }
+        public int? PostalCode { get; set; }
         [Required(ErrorMessage = "آدرس الزامیست")]
-        [DataType(DataType.Text)]
         public string Address { get; set; }
-        public int UserPanelId { get; set; }
-        public int AcquaintanceId { get; set; }
+        public string UserPanelId { get; set; }
+        public string AcquaintanceId { get; set; }
+        public int ConditionId { get; set; }
         public IEnumerable<SelectListItem> UserPanels { get; set; }
         public IEnumerable<Condition> Conditions { get; set; }
         public IEnumerable<SelectListItem> AcquaintanceTypes { get; set; }

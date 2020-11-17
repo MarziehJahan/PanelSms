@@ -11,7 +11,7 @@
     <link href="~/bootstrap-v4-rtl/css/bootstrap.css" rel="stylesheet" />
     <link href="~/bootstrap-v4-rtl/css/bootstrap-grid.css" rel="stylesheet" />
 
-    <title>Hello, world!</title>
+    <title>Panel</title>
     <style>
         .fa-2x {
             font-size: 2em;
@@ -81,15 +81,15 @@
         <div class="container">
             <div class="row rtl">
                 <div class="col-sm-4">
-                    <input asp-for="Email" type="email" value="" class="form-control" placeholder=" ایمیل" />
+                    <input asp-for="Email" class="form-control" placeholder=" ایمیل" />
                     <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
                 <div class="col-sm-4">
-                    <input asp-for="PhoneCall" value="" class="form-control" placeholder=" تلفن ثابت با کد شهر" />
+                    <input asp-for="@Model.PhoneCall"  class="form-control" placeholder=" تلفن ثابت با کد شهر" />
                     <span asp-validation-for="PhoneCall" class="text-danger"></span>
                 </div>
                 <div class="col-sm-4">
-                    <input asp-for="PhoneNumber" value="" class="form-control" placeholder="موبایل " />
+                    <input asp-for="PhoneNumber"  class="form-control" placeholder="موبایل " />
                     <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                 </div>
 
@@ -102,15 +102,15 @@
         <div class="container">
             <div class="row rtl">
                 <div class="col-sm-4">
-                    <input asp-for="NationalCode" value="" type="number" class="form-control rtl" placeholder=" کد ملی" />
+                    <input asp-for="NationalCode" type="number" class="form-control rtl" placeholder=" کد ملی" />
                     <span asp-validation-for="NationalCode" class="text-danger"></span>
                 </div>
                 <div class="col-sm-4">
-                    <input asp-for="PostalCode" value="" type="number" class="form-control rtl" placeholder="   کد پستی" />
+                    <input asp-for="PostalCode" type="number" class="form-control rtl" placeholder="   کد پستی" />
                     <span asp-validation-for="PostalCode" class="text-danger"></span>
                 </div>
                 <div class="col-sm-4">
-                    <input asp-for="BirthNo" value="" type="number" class="form-control rtl" placeholder=" شماره شناسنامه" />
+                    <input asp-for="BirthNo" type="number" class="form-control rtl" placeholder=" شماره شناسنامه" />
                     <span asp-validation-for="BirthNo" class="text-danger"></span>
                 </div>
 
@@ -147,27 +147,28 @@
                     <div class="row mr-lg-5">
                         @foreach (var item in Model.Conditions)
                         {
-                            <input value="@item.ConDescription" asp-for="Conditions" type="radio" class=" m-lg-2" />@item.ConDescription
+                            <input value="@item.ConditionId" asp-for="@Model.ConditionId" type="radio" class=" m-lg-2" />
+                            <label>@item.ConDescription</label>
                         }
                         <span asp-validation-for="Conditions" class="text-danger rtl"></span>
                     </div>
                 </div>
                 <div class="col-sm-4 rtl">
                     <label>پنل کاربری</label>
-                    <select asp-for="UserPanelId" asp-items="@Model.UserPanels" class="form-control rtl"></select>
+                    <select asp-for="@Model.UserPanelId" asp-items="@Model.UserPanels" class="form-control rtl"></select>
                     <span asp-validation-for="UserPanels" class="text-danger rtl"></span>
                 </div>
                 <div class="col-sm-4"></div>
                 <div class="col-sm-4"></div>
                 <div class="rtl col-sm-4">
                     <label>نحوه آشنایی</label>
-                    <select asp-for="AcquaintanceId" asp-items="@Model.AcquaintanceTypes" class="form-control rtl"></select>
+                    <select asp-for="@Model.AcquaintanceId" asp-items="@Model.AcquaintanceTypes" class="form-control rtl"></select>
                     <span asp-validation-for="AcquaintanceTypes" class="text-danger is-valid"></span>
                 </div>
                 <div class="col-sm-4"></div>
                 <div class="col-sm-4"></div>
                 <div class="col-sm-4 rtl">
-                    <input class="mt-4" type="checkbox" asp-for="CheckTerms" />  تمام شرایط را کامل خوانده و می پذیرم.
+                    <input class="mt-4" type="checkbox" asp-for="@Model.CheckTerms" />  تمام شرایط را کامل خوانده و می پذیرم.
                 </div>
                 <div class=" rtl container col-sm-12 mb-5 mt-5">
                     <button id="create" class="btn btn-primary btn-lg btn-block" type="submit">ثبت نام</button>

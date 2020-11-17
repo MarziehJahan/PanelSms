@@ -7,7 +7,7 @@ namespace Panel.DAL
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Password=123;Persist Security Info=True;User ID=sa;Initial Catalog=PanelSms;Data Source=DESKTOP-MBE8C0P");
+            optionsBuilder.UseSqlServer("server=.;integrated Security=True;Initial Catalog=PanelSms;");
             base.OnConfiguring(optionsBuilder);
 
         }
